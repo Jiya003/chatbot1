@@ -1,0 +1,153 @@
+{"intents": [
+  {
+    "tag": "hello",
+    "patterns": [ "Hello", "Hi there", "Good morning",  "What's up" , "Hi"  ],
+    "responses": [  "Hey!",  "Hello", "Hi!", "Good morning!","What can i do for you?","Hello. How can I assit you today?"  ],
+    "context": ""
+  },
+  { "tag": "noanswer",
+    "patterns": [],
+    "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand","Please enter something" ],
+    "context": [""]
+  },
+  {
+    "tag": "personalized_questions",
+    "patterns": [
+      "Can you ask me some questions?",
+      "I want to answer some questions",
+      "Ask me a question",
+      "Give me a question to answer"
+    ],
+    "responses": [
+      "Sure! What are your technical interests?",
+      "I'd love to know more about you. What are you passionate about?",
+      "Tell me, what kind of courses you want toenjoy?"
+    ]
+  },
+  {
+    "tag": "project_ideas",
+    "patterns": [
+      "Can you suggest some project ideas?",
+      "I need project ideas",
+      "Give me some project ideas",
+      "What are some practical projects I can work on?"
+    ],
+    "responses": [
+      "How about working on a personal finance tracker app?",
+      "You could build a simple weather forecasting app.",
+      "Consider creating a machine learning model for sentiment analysis."
+    ]
+  },
+  {
+    "tag": "course_preferences",
+    "patterns": [
+      "Can you recommend some courses?",
+      "I need course recommendations",
+      "What courses should I take?",
+      "Suggest some courses for me"
+    ],
+    "responses": [
+      "If you're interested in web development, you might enjoy courses on HTML, CSS, and JavaScript.",
+      "For data science, consider courses on Python, machine learning, and data visualization.",
+      "You could look into courses on project management or agile methodologies if you're interested in managing projects."
+    ]
+  },
+  {
+    "tag": "course_suggestion",
+    "patterns":[
+      "I want a project in chatbot ",
+      "I want a project in recommender system",
+      "I want a project in user behavior analysis",
+      "I want a course in operating system",
+      "I want a personalized course in computer networks"
+    ],
+    "responses":[
+      "Sure, I will let our team know. You will get email about this sonn on your registered email id."
+    ]
+  },
+        
+  {
+    "tag": "job",
+    "patterns": ["What is your job", "What is your work"],
+    "responses": ["My job is to make you feel like everything is okay.",
+      "I work to serve you as well as possible"],
+    "context": ""
+  },
+  {
+    "tag": "age",
+    "patterns": ["What is your age",  "How old are you",  "When were you born"],
+    "responses": ["I was born in 2024 by Divyanshi Maurya" ],
+    "context": ""
+  },
+  {
+    "tag": "feeling",
+    "patterns": ["How are you today", "How are you"],
+    "responses": ["I am feeling good, you?", "Very good and you?",  "Actually, I'm okay and you?"   ],
+    "context": ""
+  },
+
+  {
+    "tag": "bad",
+    "patterns": [ "I am feeling bad",  "No I am sad", "No"  ],
+    "responses": [  "I hope you will feel better !"    ],
+    "context": "feeling"
+  },
+  {
+    "tag": "actions",
+    "patterns": [  "What can you do",
+      "What can I ask you",  "Can you help me" ],
+    "responses": [ "I can do a lot of things but here are some of my skills, you can ask me: the courses and project ideas." ],
+    "context": ""
+  },
+  {
+    "tag": "women",
+    "patterns": [  "Are you a girl", "You are a women" ],
+    "responses": [ "Sure, I am a women" ],
+    "context": ""
+  },
+  {
+    "tag": "men",
+    "patterns": [ "Are you a men",  "Are you a boy" ],
+    "responses": ["No, I am a women" ],
+    "context": ""
+  },
+  {
+    "tag": "thanks",
+    "patterns": [ "Thank you",   "Thank you very much",  "thanks"  ],
+    "responses": [  "I only do my job️", "No problem!"  ],
+    "context": ""
+  },
+  {
+    "tag": "goodbye",
+    "patterns": [   "Goodbye",  "Good afternoon",   "Bye"   ],
+    "responses": [  "Goodbye!",  "See you soon!" ],
+    "context": ""
+  },
+  {
+    "tag": "city",
+    "patterns": [  "Where do you live" ],
+    "responses": [  "I live in a server located in the US!"
+    ],
+    "context": ""  },
+  {
+    "tag": "action",
+    "patterns": [  "What are you doing"
+    ],
+    "responses": [  "Fun fact: Actually, I'm chatting with you" ],
+    "context": ""
+  },
+  {
+    "tag": "wait",
+    "patterns": [ "Can you wait 2 minutes",  "Please wait", "Wait 2 secs please" ],
+    "responses": [ "Sure! I wait."  ],
+    "context": ""
+  },
+  {
+    "tag": "still there",
+    "patterns": [  "Are you still there?", "Are you here?"   ],
+    "responses": [ "Of course! Always at your service." ],
+    "context": ""
+  }
+  
+   ]
+}
