@@ -185,11 +185,11 @@ def pred_class(text, vocab, labels):
     return_list = [labels[r[0]] for r in y_pred]
     return return_list
 
-def get_response(intents_list, intents_json):
+def get_response(intents_list, intents):
     if len(intents_list) == 0:
         return "Sorry! I didn't understand."
     tag = intents_list[0]
-    for i in intents_json["intents"]:
+    for i in intents["intents"]:
         if i["tag"] == tag:
             return random.choice(i["responses"])
     return "Sorry! I didn't understand."
