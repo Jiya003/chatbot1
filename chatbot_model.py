@@ -7,6 +7,18 @@ import nltk
 import string
 import random
 
+import pickle as pk
+from sklearn.feature_extraction.text import CountVectorizer
+
+# Example vectorizer (you'll replace this with your actual vectorizer)
+vectorizer = CountVectorizer()
+
+# Save the vectorizer
+#with open('vectorizer.pkl', 'wb') as f:
+   # pk.dump(vectorizer, f)
+# Example vocabulary list
+
+
 
 # Ensure that NLTK resources are available
 nltk.download("punkt")
