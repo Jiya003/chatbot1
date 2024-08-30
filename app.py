@@ -1,14 +1,14 @@
 import streamlit as st
 from chatbot_model import get_response, pred_class, words, classes, intents_json
 
-# Streamlit app
+# My Streamlit app
 st.title("Chat with Our Adaptica AI")
 
-# Initialize chat history
+# For Initializing the chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Display chat history
+# Displaying the chat history
 for message in st.session_state.messages:
     if message["role"] == "user":
         st.write(f"**You:** {message['content']}")
@@ -31,6 +31,4 @@ if st.button("Send"):
         # Append bot response
         st.session_state.messages.append({"role": "bot", "content": bot_response})
 
-        # Clear user input
-        st.text_input("You:", "", key="user_input")
-
+       
