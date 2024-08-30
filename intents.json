@@ -127,7 +127,7 @@
   {
     "tag": "city",
     "patterns": [  "Where do you live" ],
-    "responses": [  "I live in a server located in the US!"
+    "responses": [  "I live in a server located in the India. Made by Divyanshi Maurya!!!"
     ],
     "context": ""  },
   {
