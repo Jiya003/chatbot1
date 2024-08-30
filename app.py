@@ -1,8 +1,8 @@
 import streamlit as st
-from chatbot_model import get_bot_response
+from chatbot_model import get_response, pred_class, words, classes, intents
 
 # Streamlit app
-st.title("Chat with Our Adaptica assistant")
+st.title("Chat with Our AI Assistant")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -25,7 +25,8 @@ if st.button("Send"):
         st.session_state.messages.append({"role": "user", "content": user_input})
         
         # Get bot response
-        bot_response = get_bot_response(user_input)
+        intents = pred_class(user_input, words, classes)
+        bot_response = get_response(intents, intents)
         
         # Append bot response
         st.session_state.messages.append({"role": "bot", "content": bot_response})
@@ -33,3 +34,9 @@ if st.button("Send"):
         # Clear user input
         st.text_input("You:", "", key="user_input")
 
+# Chatbot link (optional)
+st.sidebar.title("Chatbot Options")
+st.sidebar.write("If you want to explore more, check out our chatbot:")
+if st.sidebar.button("Open Chatbot"):
+    chatbot_link = "https://your_chatbot_url"  # Replace with your actual chatbot URL
+    st.sidebar.markdown(f"[Click here to interact with our chatbot]({chatbot_link})")
