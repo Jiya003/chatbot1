@@ -30,5 +30,6 @@ if st.button("Send"):
         
         # Appending the bot response
         st.session_state.messages.append({"role": "bot", "content": bot_response})
+        st.session_state.text_input = ""
 
        
