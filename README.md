@@ -23,9 +23,10 @@ To run this project locally, follow these steps:
 
 1. Clone the Repository
 git clone https://github.com/yourusername/adaptica-chatbot.git
+
 cd adaptica-chatbot
 
-2. Set Up a Virtual Environment
+3. Set Up a Virtual Environment
 Create and activate a virtual environment:
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate"
