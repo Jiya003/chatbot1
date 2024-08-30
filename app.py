@@ -2,7 +2,7 @@ import streamlit as st
 from chatbot_model import get_response, pred_class, words, classes, intents
 
 # Streamlit app
-st.title("Chat with Our AI Assistant")
+st.title("Chat with Our Adaptica")
 
 # Initialize chat history
 if "messages" not in st.session_state:
