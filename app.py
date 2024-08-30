@@ -18,17 +18,17 @@ for message in st.session_state.messages:
 # User input
 user_input = st.text_input("You:", "")
 
-# Handle user input
+# Handling the user input
 if st.button("Send"):
     if user_input:
-        # Append user message
+        # Appending the user message
         st.session_state.messages.append({"role": "user", "content": user_input})
         
-        # Get bot response
+        # Getting the bot response
         intents_list = pred_class(user_input, words, classes)  # Ensure this returns a list
         bot_response = get_response(intents_list, intents_json)  # Pass intents_list and intents_json
         
-        # Append bot response
+        # Appending the bot response
         st.session_state.messages.append({"role": "bot", "content": bot_response})
 
        
