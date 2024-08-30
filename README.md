@@ -3,43 +3,52 @@
 Welcome to the Adaptica chatbot project! Adaptica is an adaptive learning platform designed to enhance learning experiences. This chatbot serves as a virtual assistant to help users with various inquiries, including course recommendations, project ideas, and more.
 
 ## Features
-### Personalized Responses: 
+
+##### Personalized Responses: 
+
 Answers to user queries based on predefined intents.
 
-### Course Recommendations:
+##### Course Recommendations:
+
 Suggests courses based on user interests.
 
-### Project Ideas:
+##### Project Ideas:
+
 Provides project ideas related to user preferences.
 
-### Contextual Understanding:
+##### Contextual Understanding:
+
 Adapts responses based on user input context.
 
-### Interactive Interface:
+##### Interactive Interface:
+
 Built with Streamlit for a user-friendly chat experience.
 
-### Installation:
+##### Installation:
+
 To run this project locally, follow these steps:
 
-1. Clone the Repository
+Clone the Repository
+
 git clone https://github.com/yourusername/adaptica-chatbot.git
 
 cd adaptica-chatbot
 
-3. Set Up a Virtual Environment
+Set Up a Virtual Environment
+
 Create and activate a virtual environment:
 
 python -m venv venv
 
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate"
 
-5. Install Dependencies
+Install Dependencies
    
 Install the required Python packages:
 
 pip install -r requirements.txt
 
-4. Prepare the Model and Data
+Prepare the Model and Data
    
 Ensure you have the following files in your project directory:
 
