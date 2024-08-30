@@ -85,7 +85,7 @@ with open('classes.pkl', 'wb') as f:
 training=[]
 out_empty=[0]*len(classes) #intializing
 
-#BAG of model
+#Using BAG of model
 for idx,doc in enumerate(data_X):
   bow=[]
   text=lemmatizer.lemmatize(doc.lower())
@@ -96,11 +96,11 @@ for idx,doc in enumerate(data_X):
   output_row=list(out_empty)
   output_row[classes.index(data_Y[idx])]=1
 
-  #add the one hot encoded BOW and associated classes to traininhg
+  #adding the one hot encoded BOW and associated classes to traininhg
 
   training.append([bow, output_row])
 
-#shuffle the data and convert it to an array
+#shuffling the data and converting it to an array
 
 random.shuffle(training)
 training=np.array(training,dtype=object)
@@ -114,52 +114,55 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential, save_model
 from tensorflow.keras.layers import Dense, Dropout
 
-# Define your model
+# Defining the model
 model = Sequential()
-model.add(Dense(128, input_shape=(len(train_X[0]),), activation='relu'))  # Adjusted to match your description
+model.add(Dense(128, input_shape=(len(train_X[0]),), activation='relu'))  
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_Y[0]), activation='softmax'))
 
-# Define the optimizer
+# Defining the optimizer
 adam = tf.keras.optimizers.Adam(learning_rate=0.01, decay=1e-6)
 
-# Compile the model
+# Compiling the model
 model.compile(loss='categorical_crossentropy',
               optimizer=adam,
               metrics=['accuracy'])
 
-# Print model summary
+# Printing the model summary
+#debugging
 print(model.summary())
 
-# Train the model
+# Training the model
 model.fit(x=train_X, y=train_Y, epochs=150, verbose=1)
 
-# Save the model
+# Saving the model
 save_model(model, 'my_model.keras')
 
-# Load intents data
+# Loading the intents data
 with open('intents.json','r',encoding='utf-8') as file:
     intents = json.load(file)
 
-# Load model and vectorizer
+# Loading the model and vectorizer
 model = tf.keras.models.load_model('model.h5')  # Load the neural network model
 with open('vectorizer.pkl', 'rb') as f:
     vectorizer = pk.load(f)
 
 lemmatizer = WordNetLemmatizer()
 
-# Load vocabulary and classes
+# Loading the vocabulary and classes
 with open('vocab.pkl', 'rb') as f:
     words = pk.load(f)
 with open('classes.pkl', 'rb') as f:
     classes = pk.load(f)
 
+#preprocessing the text
 def preprocess_input(text):
     """ Transform the input text into features using the vectorizer. """
     return vectorizer.transform([text])
 
+#cleaning the text
 def clean_text(text):
     tokens = nltk.word_tokenize(text)
     tokens = (lemmatizer.lemmatize(word.lower()) for word in tokens)
@@ -176,7 +179,7 @@ def bag_of_words(text, vocab):
 
 def pred_class(text, vocab, labels):
     bow = bag_of_words(text, vocab)
-    result = model.predict(np.array([bow]))[0]  # Extract probabilities
+    result = model.predict(np.array([bow]))[0]  # Extracting the probabilities
 
     thresh = 0.5
     y_pred = [[idx, res] for idx, res in enumerate(result) if res > thresh]
