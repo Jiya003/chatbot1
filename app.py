@@ -1,19 +1,35 @@
-import pandas as pd
-import pickle as pk
-from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
+from chatbot_model import get_bot_response
 
-model=pk.load(open('model.pkl','rb'))
-scaler=pk.load(open('scaler.pkl','rb'))
-review=st.text_input("Chatbot")
+# Streamlit app
+st.title("Chat with Our Adaptica assistant")
 
-if st.button('Chat!'):
-    review_scale = scaler.transform([review]).toarray()
-    result = model.predict(review_scale)
-    if result[0] == 0:
-        st.write("Thinking")
-       
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat history
+for message in st.session_state.messages:
+    if message["role"] == "user":
+        st.write(f"**You:** {message['content']}")
     else:
-        st.write("Loading")
-       
-    
+        st.write(f"**Bot:** {message['content']}")
+
+# User input
+user_input = st.text_input("You:", "")
+
+# Handle user input
+if st.button("Send"):
+    if user_input:
+        # Append user message
+        st.session_state.messages.append({"role": "user", "content": user_input})
+        
+        # Get bot response
+        bot_response = get_bot_response(user_input)
+        
+        # Append bot response
+        st.session_state.messages.append({"role": "bot", "content": bot_response})
+
+        # Clear user input
+        st.text_input("You:", "", key="user_input")
+
