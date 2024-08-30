@@ -1,17 +1,19 @@
 import json
 import numpy as np
 import pickle as pk
-import tensorflow as tf
+import tensorflow as tf # type: ignore
 from nltk.stem import WordNetLemmatizer
 import nltk
 import string
+import random
+
 
 # Ensure that NLTK resources are available
 nltk.download("punkt")
 nltk.download("wordnet")
 
 # Load intents data
-with open('intents.json') as file:
+with open('intents.json','r',encoding='utf-8') as file:
     intents = json.load(file)
 
 # Load model and vectorizer
