@@ -1,4 +1,4 @@
-{"intents": [
+intents_json={"intents": [
   {
     "tag": "hello",
     "patterns": [ "Hello", "Hi there", "Good morning",  "What's up" , "Hi"  ],
