@@ -71,19 +71,11 @@ def pred_class(text, vocab, labels):
     return return_list
 
 def get_response(intents_list, intents_json):
-    '''if len(intents_list) == 0:
+    if len(intents_list) == 0:
         return "Sorry! I didn't understand."
     tag = intents_list[0]
     for i in intents_json["intents"]:
         if i["tag"] == tag:
             return random.choice(i["responses"])
     return "Sorry! I didn't understand."
-    '''
-   print("Press 0 if you don't want to chat with our ChatBot.")
-   while True:
-     message=input("")
-     if message =="0":
-       break
-     intents=pred_class(message,words,classes)
-     result=get_response(intents,data)
-  print(result)
+    
