@@ -184,12 +184,16 @@ def pred_class(text, vocab, labels):
     
     return_list = [labels[r[0]] for r in y_pred]
     return return_list
+def load_intents(filename='intents.json'):
+    with open(filename, 'r') as file:
+        return json.load(file)
 
-def get_response(intents_list, intents):
+intents_json = load_intents()
+def get_response(intents_list, intents_json):
     if len(intents_list) == 0:
         return "Sorry! I didn't understand."
     tag = intents_list[0]
-    for i in intents["intents"]:
+    for i in intents_json["intents"]:
         if i["tag"] == tag:
             return random.choice(i["responses"])
     return "Sorry! I didn't understand."
