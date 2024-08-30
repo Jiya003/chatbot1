@@ -24,13 +24,13 @@ data=json.loads(data_file)
 #intents are having their own tags showing context,patterns and responese
 #these intents will help us to reply to those statements.
 
-# Example vectorizer (you'll replace this with your actual vectorizer)
+# vectorizer
 vectorizer = CountVectorizer()
 
 # Save the vectorizer
 #with open('vectorizer.pkl', 'wb') as f:
    # pk.dump(vectorizer, f)
-# Example vocabulary list
+
 
 #Creating data_X and data_Y
 #using NLTK's WordNetLemmatizer(). This function will help
@@ -46,7 +46,7 @@ data_Y=[] #For storing tag corresponding to each pattern in data_X
 for intent in data["intents"]:
   for pattern in intent["patterns"]:
     tokens=nltk.word_tokenize(pattern) #tokenizing each pattern
-    words.extend(tokens) #append tokens into words
+    words.extend(tokens) #appending tokens into words
     data_X.append(pattern) #appending pattern to data_X
     data_Y.append(intent["tag"]) #appending the associated tag to each pattern
 
