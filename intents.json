@@ -1,4 +1,4 @@
-intents_json={
+{
   "intents": [
   {
     "tag": "hello",
